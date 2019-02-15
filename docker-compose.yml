@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  java:
+     image: maven:latest
+     volumes:
+       - /home/kristian/eclipse-workspace/docker-swarm-lb:/home/kristian/eclipse-workspace/docker-swarm-lb
+     ports:
+       - 80:8080
+     command: bash -c "cd /home/kristian/eclipse-workspace/docker-swarm-lb && mvn spring-boot:run"
+
+# change project path
+# docker swarm init
+# docker stack deploy --compose-file docker-compose.yml stackdemo
+# docker service scale stackdemo_java=4
+# docker stack rm stackdemo
+# docker swarm leave --force
